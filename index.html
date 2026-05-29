@@ -1,16 +1,1153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 50px; }
-        h1 { color: #333; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex Real Estate | New profile in Kazanchis</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.5;
+    }
+
+    /* container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* header */
+    header {
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      flex-wrap: wrap;
+    }
+    .logo h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #0f3b2c;
+    }
+    .logo p {
+      font-size: 0.75rem;
+      color: #b8860b;
+      letter-spacing: 1px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2d3e2f;
+      transition: 0.2s;
+    }
+    .nav-links a:hover {
+      color: #b8860b;
+    }
+
+    /* hero section */
+    .hero {
+      background: linear-gradient(120deg, #eef5ea, #ffffff);
+      padding: 3rem 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .hero-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+    .hero-text {
+      flex: 1;
+    }
+    .hero-text h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #0f3b2c;
+      margin-bottom: 0.5rem;
+    }
+    .hero-text .badge {
+      background: #fef3c7;
+      display: inline-block;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #b45309;
+      margin-bottom: 1rem;
+    }
+    .hero-text p {
+      font-size: 1.1rem;
+      color: #334155;
+      max-width: 500px;
+    }
+    .hero-image {
+      flex: 0.8;
+      text-align: center;
+    }
+    .hero-image img {
+      max-width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+    }
+
+    /* section style */
+    section {
+      padding: 3rem 0;
+    }
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: #b8860b;
+      margin-top: 8px;
+      border-radius: 2px;
+    }
+
+    /* about & mission */
+    .about-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .about-card {
+      flex: 1;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      border: 1px solid #e9f0e5;
+    }
+    .about-card h3 {
+      margin-bottom: 0.75rem;
+      color: #0f3b2c;
+    }
+
+    /* services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .service {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.03);
+      transition: 0.2s;
+      border: 1px solid #eef2e6;
+    }
+    .service:hover {
+      transform: translateY(-3px);
+      border-color: #c8a951;
+    }
+    .service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .service h4 {
+      margin-bottom: 0.5rem;
+    }
+
+    /* location highlight */
+    .location-highlight {
+      background: #eef3ea;
+      border-radius: 28px;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .location-highlight h3 {
+      font-size: 1.5rem;
+      color: #0f3b2c;
+    }
+    .address {
+      font-size: 1.1rem;
+      margin: 0.8rem 0;
+      font-weight: 500;
+    }
+
+    /* contact form simple */
+    .contact-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      background: white;
+      border-radius: 28px;
+      padding: 2rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+      border: 1px solid #e2e8f0;
+    }
+    .contact-info {
+      flex: 1;
+    }
+    .contact-form {
+      flex: 1;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 16px;
+      font-family: inherit;
+    }
+    .btn {
+      background: #0f3b2c;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn:hover {
+      background: #b8860b;
+    }
+    .cta-button {
+      display: inline-block;
+      margin-top: 1.2rem;
+      padding: 0.85rem 1.5rem;
+      background: #b8860b;
+      color: white;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .cta-button:hover {
+      background: #8f6c1e;
+    }
+    footer {
+      background: #0f2c20;
+      color: #cbd5c7;
+      padding: 2rem 0;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    /* Chatbot Styles */
+    .chatbot-trigger {
+      position: fixed;
+      bottom: 16px;
+      right: 30px;
+      text-align: center;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .chatbot-button {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #0f3b2c, #1a5a3d);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.8rem;
+      box-shadow: 0 6px 20px rgba(15, 59, 44, 0.3);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .chatbot-label {
+      font-size: 0.78rem;
+      color: #0f3b2c;
+      background: rgba(255,255,255,0.95);
+      padding: 0.25rem 0.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      max-width: 140px;
+      line-height: 1.2;
+    }
+    .chatbot-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(15, 59, 44, 0.4);
+    }
+    .chatbot-modal {
+      display: none;
+      position: fixed;
+      bottom: 100px;
+      right: 30px;
+      width: 380px;
+      height: 550px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      z-index: 101;
+      flex-direction: column;
+      animation: slideUp 0.3s ease-out;
+    }
+    .chatbot-modal.active {
+      display: flex;
+    }
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .chatbot-header {
+      background: linear-gradient(135deg, #0f3b2c, #1a5a3d);
+      color: white;
+      padding: 1.2rem;
+      border-radius: 20px 20px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+    .chatbot-title {
+      font-weight: 600;
+      flex: 1;
+    }
+    .chatbot-lang-button {
+      position: absolute;
+      right: 3rem;
+      bottom: 0.75rem;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: background 0.2s;
+    }
+    .chatbot-lang-button:hover {
+      background: rgba(255,255,255,0.3);
+    }
+    .chatbot-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0;
+    }
+    .chatbot-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background: #f9faf8;
+    }
+    .message {
+      display: flex;
+      gap: 0.5rem;
+      animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .message.user {
+      justify-content: flex-end;
+    }
+    .message-content {
+      max-width: 75%;
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      word-wrap: break-word;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .message.bot .message-content {
+      background: white;
+      color: #1e293b;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px 12px 12px 0;
+    }
+    .message.user .message-content {
+      background: #0f3b2c;
+      color: white;
+      border-radius: 12px 12px 0 12px;
+    }
+    .chatbot-input-area {
+      padding: 1rem;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      gap: 0.5rem;
+      background: white;
+      border-radius: 0 0 20px 20px;
+    }
+    .chatbot-input {
+      flex: 1;
+      border: 1px solid #cbd5e1;
+      border-radius: 20px;
+      padding: 0.7rem 1rem;
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .chatbot-input:focus {
+      border-color: #0f3b2c;
+    }
+    .chatbot-send {
+      background: #0f3b2c;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .chatbot-send:hover {
+      background: #b8860b;
+    }
+    .chat-button {
+      background: #0f3b2c;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      margin: 0.5rem 0.25rem;
+      transition: 0.2s;
+    }
+    .chat-button:hover {
+      background: #b8860b;
+    }
+    .chat-form-group {
+      margin-bottom: 1rem;
+    }
+    .chat-form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      font-size: 0.9rem;
+      color: #1e293b;
+    }
+    .chat-form-group input,
+    .chat-form-group select {
+      width: 100%;
+      padding: 0.7rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      box-sizing: border-box;
+    }
+    .chat-form-group input:focus,
+    .chat-form-group select:focus {
+      outline: none;
+      border-color: #0f3b2c;
+      box-shadow: 0 0 0 2px rgba(15, 59, 44, 0.1);
+    }
+    @media (max-width: 700px) {
+      .hero-text h2 {
+        font-size: 1.8rem;
+      }
+      .nav-links {
+        gap: 1rem;
+      }
+      .chatbot-modal {
+        width: 100%;
+        height: 70vh;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        border-radius: 20px 20px 0 0;
+        z-index: 99;
+      }
+      .lang-toggle {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1>Welcome to My GitHub Pages Site!</h1>
-    <p>This site is hosted on GitHub Pages.</p>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">
+        <h1>APEX REAL ESTATE</h1>
+        <p>📍 Kazanchis • Addis Ababa</p>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- Hero section -->
+  <section id="home" class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <div class="badge">✦ NEW on the market, 
+          So we came up with big discount✦</div>
+        <h2>Your trusted partner<br>in Ethiopian real estate</h2>
+        <p>Apex Real Estate is a fresh, dynamic agency based in Kazanchis. We bring transparency, local expertise, and a personal touch to every client.</p>
+        <p style="margin-top: 1.2rem;"><strong>🏠 First steps together — Let's find your space.</strong></p>
+      </div>
+      <div class="hero-image">
+        <!-- simple placeholder for building icon -->
+        <div style="background:#e7efdf; border-radius: 32px; padding: 20px;">
+          <span style="font-size: 5rem;">🏢</span>
+          <p style="margin-top: 8px;">Kazanchis business hub</p>
+        </div>
+        <a href="#programs" class="cta-button">Explore our programs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs Section -->
+  <div class="container" id="programs">
+    <h2 class="section-title">Our Programs</h2>
+    <div class="services-grid">
+      <div class="service">
+        <div class="service-icon">💼</div>
+        <h4>Kazanchis Business Hub</h4>
+        <p>Explore our curated workspace, events, and business support network for local entrepreneurs.</p>
+      </div>
+      <div class="service">
+        <div class="service-icon">🚀</div>
+        <h4>Investment Programs</h4>
+        <p>Learn about our tailored programs for buyers, investors, and developers seeking opportunity in Addis Ababa.</p>
+      </div>
+      <div class="service">
+        <div class="service-icon">🤝</div>
+        <h4>Community Support</h4>
+        <p>See how we help local businesses grow with property solutions, consulting, and tenant services.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <div class="container" id="about">
+    <h2 class="section-title">About Apex Real Estate</h2>
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>🌱 New, but passionate</h3>
+        <p>We launched in 2025 with a clear mission: to simplify property search and investment in Addis Ababa and beyond. Being based in Kazanchis gives us a central pulse on the market.</p>
+      </div>
+      <div class="about-card">
+        <h3>🎯 Our promise</h3>
+        <p>Honest advice, no hidden fees, and deep knowledge of emerging neighborhoods like Kazanchis, Bole, and surrounding areas. We grow with you.</p>
+      </div>
+      <div class="about-card">
+        <h3>🤝 Client-first approach</h3>
+        <p>Whether you're buying, renting, or selling — we listen first, then act. Small enough to care, ambitious enough to deliver.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services Section -->
+  <div class="container" id="services">
+    <h2 class="section-title">What we offer</h2>
+    <div class="services-grid">
+      <div class="service">
+        <div class="service-icon">🏘️</div>
+        <h4>Property listings</h4>
+        <p>Apartments and land plots — verified and ready.</p>
+      </div>
+      <div class="service">
+        <div class="service-icon">📝</div>
+        <h4>Legal guidance</h4>
+        <p>Assistance with contracts, ownership transfer, and due diligence.</p>
+      </div>
+      <div class="service">
+        <div class="service-icon">📈</div>
+        <h4>Investment consulting</h4>
+        <p>Market analysis and ROI projections for investors.</p>
+      </div>
+      <div class="service">
+        <div class="service-icon">🔑</div>
+        <h4>Rental management</h4>
+        <p>Full service for landlords: tenants, maintenance, and income collection.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kazanchis spotlight -->
+  <div class="container">
+    <div class="location-highlight">
+      <h3>📍 Based in Kazanchis — the heart of Addis</h3>
+      <p class="address">Unity Square, Kazanchis Business District, Addis Ababa, Ethiopia</p>
+      <p>Our office is minutes away from major banks, hotels, and ministries. Perfectly positioned to serve you.</p>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <div class="container" id="contact">
+    <h2 class="section-title">Get in touch</h2>
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <h3>📞 Contact details</h3>
+        <p style="margin: 1rem 0;"><strong>Phone:</strong> 0930069344<br>0911874741<br/></p>
+        <p><strong>Email:</strong> @apexrealestate.et</p>
+        <p><strong>Hours:</strong> Mon–Fri 2:00 – 11:00 ETH time zone<br>Saturday by appointment</p>
+        <hr style="margin: 1rem 0; border-color: #e2e8f0;">
+        <p>📱 Follow us: <strong>@apexrealty.et</strong> (Instagram & Telegram)</p>
+      </div>
+      <div class="contact-form">
+        <h3>Send a message</h3>
+        <form id="simpleContact">
+          <input type="text" placeholder="Your name" id="nameInput" required>
+          <input type="email" placeholder="Email address" id="emailInput" required>
+          <textarea rows="3" placeholder="Tell us about your property needs..." id="msgInput"></textarea>
+          <button type="submit" class="btn">Send inquiry ➤</button>
+        </form>
+        <p id="formFeedback" style="margin-top: 12px; font-size:0.85rem; color:#b8860b;"></p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© 2025 Apex Real Estate — New generation realty from Kazanchis, Addis Ababa</p>
+    <p style="margin-top: 0.5rem; font-size: 0.8rem;">Building trust, one property at a time.</p>
+  </div>
+</footer>
+
+<!-- Chatbot -->
+<div class="chatbot-trigger">
+  <button class="chatbot-button" id="chatbotBtn" title="Click here to contact our team" aria-label="Click here to contact our team">💬</button>
+  <span class="chatbot-label">Click here to contact our team</span>
+</div>
+<div class="chatbot-modal" id="chatbotModal">
+  <div class="chatbot-header">
+    <div class="chatbot-title" id="chatTitle">Chat with us</div>
+    <button class="chatbot-lang-button" id="langToggle">English ▾</button>
+    <button class="chatbot-close" id="chatCloseBtn">✕</button>
+  </div>
+  <div class="chatbot-messages" id="chatMessages"></div>
+  <div class="chatbot-input-area">
+    <input type="text" class="chatbot-input" id="chatInput" placeholder="Type a message...">
+    <button class="chatbot-send" id="chatSendBtn">➤</button>
+  </div>
+</div>
+
+<script>
+  // contact form integration with backend
+  const contactForm = document.getElementById('simpleContact');
+  const feedback = document.getElementById('formFeedback');
+
+  async function submitInquiry(data) {
+    const response = await fetch('/api/inquiry', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(errorText || 'Failed to submit inquiry');
+    }
+
+    return response.json();
+  }
+
+  async function submitChatbotInfo(data) {
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(errorText || 'Failed to send chatbot info');
+    }
+
+    return response.json();
+  }
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = document.getElementById('nameInput').value.trim();
+    const email = document.getElementById('emailInput').value.trim();
+    const msg = document.getElementById('msgInput').value.trim();
+
+    if (!name || !email) {
+      feedback.textContent = '❌ Please fill in your name and email.';
+      return;
+    }
+
+    feedback.textContent = '⏳ Sending your inquiry...';
+
+    try {
+      await submitInquiry({ name, email, message: msg });
+      feedback.innerHTML = '✅ Thank you, ' + name + '! Our team in Kazanchis will reply within 24 hours.';
+      contactForm.reset();
+    } catch (error) {
+      console.error('Inquiry submit error:', error);
+      feedback.textContent = '⚠️ Sorry, we could not send your inquiry. Please try again later.';
+    }
+
+    setTimeout(() => {
+      feedback.textContent = '';
+    }, 4000);
+  });
+
+  // Chatbot functionality
+  let currentLang = 'en';
+
+  const chatbotBtn = document.getElementById('chatbotBtn');
+  const chatbotModal = document.getElementById('chatbotModal');
+  const chatCloseBtn = document.getElementById('chatCloseBtn');
+  const chatInput = document.getElementById('chatInput');
+  const chatSendBtn = document.getElementById('chatSendBtn');
+  const chatMessages = document.getElementById('chatMessages');
+  const chatInputArea = document.querySelector('.chatbot-input-area');
+  const langToggle = document.getElementById('langToggle');
+  const chatTitle = document.getElementById('chatTitle');
+
+  const responses = {
+    en: {
+      greeting: "Hello! 👋 Welcome to Apex Real Estate. How can we help you today?",
+      services: "We offer:\n• Property listings\n• Legal guidance\n• Investment consulting\n• Rental management\n\nWhich service interests you?",
+      contact: "You can reach us at:\n📞 09300066344\n📧 hello@apexrealestate.et\n🏢 Kazanchis, Addis Ababa\n\nWe're available Mon–Fri 9:00–17:00",
+      location: "We're based in Kazanchis Business District, the heart of Addis Ababa. Our location gives us expertise in prime neighborhoods.",
+      inquiry: "Thank you! Please visit our contact section to fill out a detailed inquiry form. Our team will respond within 24 hours.",
+      default: "Thank you for your message. Please ask about our services, location, or contact information. 😊"
+    },
+    am: {
+      greeting: "ሰላም! 👋 ወደ Apex Real Estate እንኖራቅ። আজ እንዴት ሊረዳሃ እችላለሁ?",
+      services: "ኛ እንሙ:\n• ንብረት ዝርዝር\n• ህጋዊ መመሪያ\n• የኢንቬስትመንት ምክር\n• ንቅሞት ያቅጃጃዋ\n\nየትኛው አገልግሎት ይሰብብሃል?",
+      contact: "ወደ እኛ ልታገኝ ትችላለህ:\n📞 09300066344\n📧 hello@apexrealestate.et\n🏢 ካዛንቺስ፣ አዲስ አበባ\n\nወ/ሐ-ሚ 9:00–17:00 ይገኛሉ",
+      location: "በካዛንቺስ ቢዝነስ ዲስትሪክት ውስጥ ይገኛሉ፣ የአዲስ አበባ ልብ። ስፍራ የአላላ ���ፈር ጣልቃ ትግበራ ይሰጣል።",
+      inquiry: "አመሰግናለሁ! እባክህ የውጤታ መጠይቅ ፎርም ለመሙላት ያግኙ። ስራ ጥምዘታ በ24 ሰዓት ውስጥ ምላሽ ይሰጣል።",
+      default: "ለንግግሩ አመሰግናለሁ። ስለ አገልግሎታችን፣ ስፍራ ወይም አገኛ መረጃ ሙከር።😊"
+    },
+    om: {
+      greeting: "Akkam! 👋 Welcome to Apex Real Estate. Maal siif gochuu dandeenya?",
+      services: "Nuti kenninu:\n• Tarree qabeenya\n• Gargaarsa seeraa\n• Gorsa invastimantii\n• Bulchiinsa kiristaala\n\nTajaajila kamiin barbaadda?",
+      contact: "Nu quunnamuuf:\n📞 09300066344\n📧 hello@apexrealestate.et\n🏢 Kazanchis, Addis Ababa\n\nBiroo Wiixata–Jimaata 9:00–17:00 jiraanna",
+      location: "Kazanchis Business District keessaa jirra, garaa Addis Ababa. Bakki keenya naannoo tokkoffaa siif ta'a.",
+      inquiry: "Galatoomi! Tankaarfii odeeffannoo guutuu argachuuf kutaa qunnamtii keenya ilaali. Gareen keenya sa'aa 24 keessatti siif deebisa.",
+      default: "Ergaa kee galatoomi. Maalummaa tajaajilaa, bakka, yookiin odeeffannoo qunnamtii gaafadhu. 😊"
+    }
+  };
+
+  function getNextLanguage() {
+    return currentLang === 'en' ? 'am' : currentLang === 'am' ? 'om' : 'en';
+  }
+
+  function getLanguageButtonLabel(lang) {
+    return lang === 'en' ? 'አማርኛ' : lang === 'am' ? 'Afaan Oromo' : 'English';
+  }
+
+  function updateInputAreaVisibility() {
+    chatInputArea.style.display = conversationStep === 0 ? 'flex' : 'none';
+  }
+
+  function updateChatLanguage() {
+    const nextLang = getNextLanguage();
+    langToggle.textContent = getLanguageButtonLabel(nextLang);
+    chatTitle.textContent = currentLang === 'en'
+      ? 'Chat with us'
+      : currentLang === 'am'
+      ? 'ከኛ ጋር ይግናኙ'
+      : 'Nu waliin haasa\u02bcaa';
+    chatInput.placeholder = currentLang === 'en'
+      ? 'Type a message...'
+      : currentLang === 'am'
+      ? ' መልእክት ይግለጹ...'
+      : 'Ergaa barreessi...';
+    chatSendBtn.textContent = '➤';
+    langToggle.textContent = currentLang === 'en'
+      ? 'English ▾'
+      : currentLang === 'am'
+      ? 'አማርኛ ▾'
+      : 'Afaan Oromo ▾';
+    updateInputAreaVisibility();
+  }
+
+  function toggleLanguage() {
+    currentLang = getNextLanguage();
+    updateChatLanguage();
+  }
+
+  function getResponse(userMessage) {
+    const msg = userMessage.toLowerCase();
+    const lang = currentLang;
+
+    if (msg.includes('hello') || msg.includes('hi') || msg.includes('akkam') || msg.includes('ሰላም') || msg.includes('ሂ')) {
+      return responses[lang].greeting;
+    } else if (msg.includes('service') || msg.includes('offer') || msg.includes('tajaajila') || msg.includes('አገልግሎት') || msg.includes('ውጤታ')) {
+      return responses[lang].services;
+    } else if (msg.includes('contact') || msg.includes('phone') || msg.includes('email') || msg.includes('bilbil') || msg.includes('imeel') || msg.includes('አገኛ') || msg.includes('ስልክ')) {
+      return responses[lang].contact;
+    } else if (msg.includes('location') || msg.includes('kazanchis') || msg.includes('address') || msg.includes('ስፍራ') || msg.includes('ካዛንቺስ')) {
+      return responses[lang].location;
+    } else if (msg.includes('inquiry') || msg.includes('property') || msg.includes('buy') || msg.includes('rent') || msg.includes('sell') || msg.includes('qabeenya') || msg.includes('gaafadhu') || msg.includes('ንብረት') || msg.includes('ይክሩ') || msg.includes('ይውሰዱ')) {
+      return responses[lang].inquiry;
+    } else {
+      return responses[lang].default;
+    }
+  }
+
+  function addMessage(text, isUser) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+    const contentDiv = document.createElement('div');
+    contentDiv.className = 'message-content';
+    contentDiv.textContent = text;
+    messageDiv.appendChild(contentDiv);
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  // Chatbot functionality with multi-step form
+  let conversationStep = 0;
+  let userInfo = { name: '', phone: '', email: '' };
+
+  const countryCodes = [
+    { code: '+251', country: 'Ethiopia 🇪🇹' },
+    { code: '+1', country: 'USA/Canada 🇺🇸' },
+    { code: '+44', country: 'UK 🇬🇧' },
+    { code: '+91', country: 'India 🇮🇳' },
+    { code: '+61', country: 'Australia 🇦🇺' },
+    { code: '+33', country: 'France 🇫🇷' },
+    { code: '+49', country: 'Germany 🇩🇪' },
+    { code: '+971', country: 'UAE 🇦🇪' }
+  ];
+
+  const messages = {
+    en: {
+      welcome: "Welcome to Apex Real Estate Developer! 🏢 Do you want to hear information about our Kazanchis real estate?",
+      ok: "OK",
+      askName: "Great! What's your name?",
+      askPhone: "Thank you! How can we reach you? Please choose your country code and provide your phone number or email.",
+      selectCountry: "Select Country Code",
+      phoneLabel: "Phone Number",
+      emailLabel: "Email Address (optional)",
+      submit: "Submit",
+      thankYou: "Thank you {name}! 🙏 We appreciate your interest in Apex Real Estate. Our team will contact you soon at {contact}. We look forward to helping you find your perfect property in Kazanchis! 🏠"
+    },
+    am: {
+      welcome: "ወደ Apex Real Estate Developer እንኖራቅ! 🏢 ስለ ካዛንቺስ ሪል ኢስተት መረጃ መስማት ይፈልጋሉ?",
+      ok: "እሺ",
+      askName: "በጣም ጥሩ! ስምህ ምንድን ነው?",
+      askPhone: "አመሰግናለሁ! እንዴት እንድንደርሰዎ ይችላሉ? ሃገርዎን ይምረጡ እና ስልክ ቁጥር ወይም ኢሜይል ያቅርቡ።",
+      selectCountry: "ሃገር ይምረጡ",
+      phoneLabel: "ስልክ ቁጥር",
+      emailLabel: "ኢሜይል አድራሻ (አማራጅ)",
+      submit: "ግቤት",
+      thankYou: "ስለ{name} አመሰግናለሁ! 🙏 ለ Apex Real Estate ፍላጎት ያሳዩ። ሥራ ቡድናችን በቅርቡ {contact} ይติኩዎታል። ሙሉ ንብረትሃ በካዛንቺስ ለማግኘት ሊረዱዎት ይችላሉ! 🏠"
+    },
+    om: {
+      welcome: "Akkam! 🏢 Apex Real Estate keessatti si simanna! Qajeelfama qabeenya Kazanchis irratti dhaggeeffachuuf barbaaddaa?",
+      ok: "Ta'a",
+      askName: "Gaariidha! Maqaan kee eenyu?",
+      askPhone: "Galatoomi! Akka si qunnamnuuf maal fayyadamna? Lakkoofsa biyya filadhu ykn bilbilaa yookiin imeelii kenni.",
+      selectCountry: "Lakkoofsa biyya filadhu",
+      phoneLabel: "Lakkoofsa Bilbilaa",
+      emailLabel: "Imaayilii Addeessa (filatamaa)",
+      submit: "Ergaa",
+      thankYou: "Galatoomi {name}! 🙏 Fedhii keetiif Apex Real Estate siif galateeffata. Gareen keenya saffisaan {contact} si quunnama. Qabeenya sirrii Kazanchis keessatti si argamsiisuuf ni hojjenna! 🏠"
+    }
+  };
+
+  function addMessage(text, isUser, html = false) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+    const contentDiv = document.createElement('div');
+    contentDiv.className = 'message-content';
+    if (html) {
+      contentDiv.innerHTML = text;
+    } else {
+      contentDiv.textContent = text;
+    }
+    messageDiv.appendChild(contentDiv);
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  function addButton(text, callback) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'message bot';
+    const buttonDiv = document.createElement('button');
+    buttonDiv.className = 'chat-button';
+    buttonDiv.textContent = text;
+    buttonDiv.onclick = callback;
+    messageDiv.appendChild(buttonDiv);
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  function handleUserMessage() {
+    const message = chatInput.value.trim();
+    if (!message) return;
+
+    addMessage(message, true);
+    chatInput.value = '';
+
+    if (conversationStep === 0) {
+      const reply = getResponse(message);
+      addMessage(reply, false);
+    }
+  }
+
+  function addFormField(fieldType) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'message bot';
+    const lang = currentLang;
+    
+    if (fieldType === 'phone') {
+      const formDiv = document.createElement('div');
+      formDiv.style.width = '100%';
+      formDiv.style.background = 'white';
+      formDiv.style.padding = '0.8rem';
+      formDiv.style.borderRadius = '8px';
+      
+      const countryGroup = document.createElement('div');
+      countryGroup.className = 'chat-form-group';
+      const countryLabel = document.createElement('label');
+      countryLabel.textContent = messages[lang].selectCountry;
+      const countrySelect = document.createElement('select');
+      countrySelect.id = 'countrySelect';
+      
+      countryCodes.forEach(c => {
+        const option = document.createElement('option');
+        option.value = c.code;
+        option.textContent = c.country + ' ' + c.code;
+        countrySelect.appendChild(option);
+      });
+      
+      countryGroup.appendChild(countryLabel);
+      countryGroup.appendChild(countrySelect);
+      formDiv.appendChild(countryGroup);
+
+      const phoneGroup = document.createElement('div');
+      phoneGroup.className = 'chat-form-group';
+      const phoneLabel = document.createElement('label');
+      phoneLabel.textContent = messages[lang].phoneLabel;
+      const phoneInput = document.createElement('input');
+      phoneInput.type = 'text';
+      phoneInput.id = 'phoneInput';
+      phoneInput.placeholder = 'Phone number (e.g., 091234....)';
+      
+      phoneGroup.appendChild(phoneLabel);
+      phoneGroup.appendChild(phoneInput);
+      formDiv.appendChild(phoneGroup);
+
+      const emailGroup = document.createElement('div');
+      emailGroup.className = 'chat-form-group';
+      const emailLabel = document.createElement('label');
+      emailLabel.textContent = messages[lang].emailLabel;
+      const emailInput = document.createElement('input');
+      emailInput.type = 'email';
+      emailInput.id = 'emailInput';
+      emailInput.placeholder = 'your@gmail.com';
+      
+      emailGroup.appendChild(emailLabel);
+      emailGroup.appendChild(emailInput);
+      formDiv.appendChild(emailGroup);
+
+      const submitBtn = document.createElement('button');
+      submitBtn.className = 'chat-button';
+      submitBtn.textContent = messages[lang].submit;
+      submitBtn.onclick = () => {
+        const phone = document.getElementById('phoneInput').value.trim();
+        const email = document.getElementById('emailInput').value.trim();
+        const country = document.getElementById('countrySelect').value;
+        
+        if (!phone && !email) {
+          alert(
+            currentLang === 'en'
+              ? 'Please enter phone or email'
+              : currentLang === 'am'
+              ? 'ስልክ ወይም ኢሜይል ያስገቡ'
+              : 'Lakk. bilbilaa yookiin imeelii galchaa'
+          );
+          return;
+        }
+
+        if (phone && email) {
+          userInfo.phone = country + phone;
+          userInfo.email = email;
+          userInfo.contact = country + phone + ' / ' + email;
+        } else if (phone) {
+          userInfo.phone = country + phone;
+          userInfo.contact = country + phone;
+        } else {
+          userInfo.email = email;
+          userInfo.contact = email;
+        }
+
+        addMessage(`${userInfo.phone ? 'Phone: ' + userInfo.phone : ''}${userInfo.phone && userInfo.email ? ' / ' : ''}${userInfo.email || ''}`, true);
+
+        submitChatbotInfo({
+          name: userInfo.name,
+          phone: userInfo.phone || null,
+          email: userInfo.email || null,
+          language: currentLang,
+          source: 'chatbot'
+        }).catch((error) => {
+          console.error('Chatbot submit error:', error);
+          addMessage(
+            currentLang === 'en'
+              ? '⚠️ We could not send your details. Please try again later.'
+              : currentLang === 'am'
+              ? '⚠️ ዝርዝርዎን ማስገባት አልተቻለም። ከድጋሚ ይሞክሩ።'
+              : '⚠️ Odeeffannoo kee erguun hin dandaʼamne. Erga booddee deebisi.'
+          , false);
+        });
+
+        showThankYou();
+      };
+      
+      formDiv.appendChild(submitBtn);
+      messageDiv.appendChild(formDiv);
+    } else if (fieldType === 'name') {
+      const formDiv = document.createElement('div');
+      formDiv.style.width = '100%';
+      formDiv.style.display = 'flex';
+      formDiv.style.gap = '0.5rem';
+      
+      const nameInput = document.createElement('input');
+      nameInput.type = 'text';
+      nameInput.className = 'chatbot-input';
+      nameInput.placeholder = currentLang === 'en' ? 'Your name...' : currentLang === 'am' ? 'ስምህ...' : 'Maqaa kee...';
+      nameInput.style.flex = '1';
+      nameInput.style.margin = '0';
+      
+      const submitBtn = document.createElement('button');
+      submitBtn.className = 'chatbot-send';
+      submitBtn.textContent = '➤';
+      submitBtn.onclick = () => {
+        const name = nameInput.value.trim();
+        if (!name) return;
+        userInfo.name = name;
+        addMessage(name, true);
+        askPhoneContact();
+      };
+      
+      formDiv.appendChild(nameInput);
+      formDiv.appendChild(submitBtn);
+      messageDiv.appendChild(formDiv);
+      
+      setTimeout(() => nameInput.focus(), 100);
+    }
+    
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  function showWelcome() {
+    conversationStep = 0;
+    updateInputAreaVisibility();
+    const lang = currentLang;
+    addMessage(messages[lang].welcome, false);
+    addButton(messages[lang].ok, askName);
+  }
+
+  function askName() {
+    conversationStep = 1;
+    updateInputAreaVisibility();
+    const lang = currentLang;
+    addMessage(messages[lang].askName, false);
+    addFormField('name');
+  }
+
+  function askPhoneContact() {
+    conversationStep = 2;
+    updateInputAreaVisibility();
+    const lang = currentLang;
+    addMessage(messages[lang].askPhone, false);
+    addFormField('phone');
+  }
+
+  function showThankYou() {
+    conversationStep = 3;
+    updateInputAreaVisibility();
+    const lang = currentLang;
+    let thankYouMsg = messages[lang].thankYou
+      .replace('{name}', userInfo.name)
+      .replace('{contact}', userInfo.contact);
+    addMessage(thankYouMsg, false);
+    
+    setTimeout(() => {
+      conversationStep = 0;
+      userInfo = { name: '', phone: '', email: '' };
+      updateInputAreaVisibility();
+    }, 3000);
+  }
+
+  chatbotBtn.addEventListener('click', () => {
+    chatbotModal.classList.add('active');
+    if (chatMessages.children.length === 0) {
+      showWelcome();
+    }
+  });
+
+  chatCloseBtn.addEventListener('click', () => {
+    chatbotModal.classList.remove('active');
+  });
+
+  chatSendBtn.addEventListener('click', handleUserMessage);
+  chatInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleUserMessage();
+    }
+  });
+
+  langToggle.addEventListener('click', toggleLanguage);
+  updateChatLanguage();
+</script>
 </body>
 </html>
